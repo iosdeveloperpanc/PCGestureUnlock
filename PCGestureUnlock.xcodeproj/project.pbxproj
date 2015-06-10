@@ -1,0 +1,513 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3ABFF5B01B288D75008190C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFF5AF1B288D75008190C6 /* main.m */; };
+		3ABFF5B31B288D75008190C6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFF5B21B288D75008190C6 /* AppDelegate.m */; };
+		3ABFF5BB1B288D75008190C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ABFF5BA1B288D75008190C6 /* Images.xcassets */; };
+		3ABFF5BE1B288D75008190C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ABFF5BC1B288D75008190C6 /* LaunchScreen.xib */; };
+		3ABFF5CA1B288D75008190C6 /* PCGestureUnlockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFF5C91B288D75008190C6 /* PCGestureUnlockTests.m */; };
+		3ABFF5E71B288F54008190C6 /* GestureVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFF5D51B288F54008190C6 /* GestureVerifyViewController.m */; };
+		3ABFF5E81B288F54008190C6 /* GestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFF5D71B288F54008190C6 /* GestureViewController.m */; };
+		3ABFF5E91B288F54008190C6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFF5D91B288F54008190C6 /* ViewController.m */; };
+		3ABFF5EA1B288F54008190C6 /* PCCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFF5DC1B288F54008190C6 /* PCCircle.m */; };
+		3ABFF5EB1B288F54008190C6 /* PCCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFF5DE1B288F54008190C6 /* PCCircleView.m */; };
+		3ABFF5EC1B288F54008190C6 /* PCCircleViewConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFF5E01B288F54008190C6 /* PCCircleViewConst.m */; };
+		3ABFF5ED1B288F54008190C6 /* CALayer+Anim.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFF5E31B288F54008190C6 /* CALayer+Anim.m */; };
+		3ABFF5EE1B288F54008190C6 /* PCLockLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFF5E61B288F54008190C6 /* PCLockLabel.m */; };
+		3ABFF5F11B288F80008190C6 /* PCCircleInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFF5F01B288F80008190C6 /* PCCircleInfoView.m */; };
+		3ABFF5F41B288FBE008190C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ABFF5F21B288FBE008190C6 /* Main.storyboard */; };
+		3ABFF5F61B2895AE008190C6 /* 解锁界面初始化布局.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3ABFF5F51B2895AE008190C6 /* 解锁界面初始化布局.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3ABFF5C41B288D75008190C6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3ABFF5A21B288D75008190C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3ABFF5A91B288D75008190C6;
+			remoteInfo = PCGestureUnlock;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3ABFF5AA1B288D75008190C6 /* PCGestureUnlock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PCGestureUnlock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ABFF5AE1B288D75008190C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3ABFF5AF1B288D75008190C6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3ABFF5B11B288D75008190C6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3ABFF5B21B288D75008190C6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3ABFF5BA1B288D75008190C6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3ABFF5BD1B288D75008190C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3ABFF5C31B288D75008190C6 /* PCGestureUnlockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PCGestureUnlockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ABFF5C81B288D75008190C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3ABFF5C91B288D75008190C6 /* PCGestureUnlockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PCGestureUnlockTests.m; sourceTree = "<group>"; };
+		3ABFF5D41B288F54008190C6 /* GestureVerifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureVerifyViewController.h; sourceTree = "<group>"; };
+		3ABFF5D51B288F54008190C6 /* GestureVerifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureVerifyViewController.m; sourceTree = "<group>"; };
+		3ABFF5D61B288F54008190C6 /* GestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GestureViewController.h; sourceTree = "<group>"; };
+		3ABFF5D71B288F54008190C6 /* GestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GestureViewController.m; sourceTree = "<group>"; };
+		3ABFF5D81B288F54008190C6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3ABFF5D91B288F54008190C6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3ABFF5DB1B288F54008190C6 /* PCCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircle.h; sourceTree = "<group>"; };
+		3ABFF5DC1B288F54008190C6 /* PCCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircle.m; sourceTree = "<group>"; };
+		3ABFF5DD1B288F54008190C6 /* PCCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleView.h; sourceTree = "<group>"; };
+		3ABFF5DE1B288F54008190C6 /* PCCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleView.m; sourceTree = "<group>"; };
+		3ABFF5DF1B288F54008190C6 /* PCCircleViewConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleViewConst.h; sourceTree = "<group>"; };
+		3ABFF5E01B288F54008190C6 /* PCCircleViewConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleViewConst.m; sourceTree = "<group>"; };
+		3ABFF5E21B288F54008190C6 /* CALayer+Anim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Anim.h"; sourceTree = "<group>"; };
+		3ABFF5E31B288F54008190C6 /* CALayer+Anim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Anim.m"; sourceTree = "<group>"; };
+		3ABFF5E51B288F54008190C6 /* PCLockLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCLockLabel.h; sourceTree = "<group>"; };
+		3ABFF5E61B288F54008190C6 /* PCLockLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCLockLabel.m; sourceTree = "<group>"; };
+		3ABFF5EF1B288F80008190C6 /* PCCircleInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleInfoView.h; sourceTree = "<group>"; };
+		3ABFF5F01B288F80008190C6 /* PCCircleInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleInfoView.m; sourceTree = "<group>"; };
+		3ABFF5F31B288FBE008190C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3ABFF5F51B2895AE008190C6 /* 解锁界面初始化布局.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "解锁界面初始化布局.jpg"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3ABFF5A71B288D75008190C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ABFF5C01B288D75008190C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3ABFF5A11B288D75008190C6 = {
+			isa = PBXGroup;
+			children = (
+				3ABFF5AC1B288D75008190C6 /* PCGestureUnlock */,
+				3ABFF5C61B288D75008190C6 /* PCGestureUnlockTests */,
+				3ABFF5AB1B288D75008190C6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3ABFF5AB1B288D75008190C6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3ABFF5AA1B288D75008190C6 /* PCGestureUnlock.app */,
+				3ABFF5C31B288D75008190C6 /* PCGestureUnlockTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3ABFF5AC1B288D75008190C6 /* PCGestureUnlock */ = {
+			isa = PBXGroup;
+			children = (
+				3ABFF5D31B288F54008190C6 /* Controller */,
+				3ABFF5DA1B288F54008190C6 /* FrameWork */,
+				3ABFF5E11B288F54008190C6 /* Gategory */,
+				3ABFF5E41B288F54008190C6 /* View */,
+				3ABFF5B11B288D75008190C6 /* AppDelegate.h */,
+				3ABFF5B21B288D75008190C6 /* AppDelegate.m */,
+				3ABFF5BA1B288D75008190C6 /* Images.xcassets */,
+				3ABFF5BC1B288D75008190C6 /* LaunchScreen.xib */,
+				3ABFF5F21B288FBE008190C6 /* Main.storyboard */,
+				3ABFF5AD1B288D75008190C6 /* Supporting Files */,
+			);
+			path = PCGestureUnlock;
+			sourceTree = "<group>";
+		};
+		3ABFF5AD1B288D75008190C6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3ABFF5F51B2895AE008190C6 /* 解锁界面初始化布局.jpg */,
+				3ABFF5AE1B288D75008190C6 /* Info.plist */,
+				3ABFF5AF1B288D75008190C6 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3ABFF5C61B288D75008190C6 /* PCGestureUnlockTests */ = {
+			isa = PBXGroup;
+			children = (
+				3ABFF5C91B288D75008190C6 /* PCGestureUnlockTests.m */,
+				3ABFF5C71B288D75008190C6 /* Supporting Files */,
+			);
+			path = PCGestureUnlockTests;
+			sourceTree = "<group>";
+		};
+		3ABFF5C71B288D75008190C6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3ABFF5C81B288D75008190C6 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3ABFF5D31B288F54008190C6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3ABFF5D41B288F54008190C6 /* GestureVerifyViewController.h */,
+				3ABFF5D51B288F54008190C6 /* GestureVerifyViewController.m */,
+				3ABFF5D61B288F54008190C6 /* GestureViewController.h */,
+				3ABFF5D71B288F54008190C6 /* GestureViewController.m */,
+				3ABFF5D81B288F54008190C6 /* ViewController.h */,
+				3ABFF5D91B288F54008190C6 /* ViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3ABFF5DA1B288F54008190C6 /* FrameWork */ = {
+			isa = PBXGroup;
+			children = (
+				3ABFF5DB1B288F54008190C6 /* PCCircle.h */,
+				3ABFF5DC1B288F54008190C6 /* PCCircle.m */,
+				3ABFF5DD1B288F54008190C6 /* PCCircleView.h */,
+				3ABFF5DE1B288F54008190C6 /* PCCircleView.m */,
+				3ABFF5DF1B288F54008190C6 /* PCCircleViewConst.h */,
+				3ABFF5E01B288F54008190C6 /* PCCircleViewConst.m */,
+			);
+			path = FrameWork;
+			sourceTree = "<group>";
+		};
+		3ABFF5E11B288F54008190C6 /* Gategory */ = {
+			isa = PBXGroup;
+			children = (
+				3ABFF5E21B288F54008190C6 /* CALayer+Anim.h */,
+				3ABFF5E31B288F54008190C6 /* CALayer+Anim.m */,
+			);
+			path = Gategory;
+			sourceTree = "<group>";
+		};
+		3ABFF5E41B288F54008190C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3ABFF5EF1B288F80008190C6 /* PCCircleInfoView.h */,
+				3ABFF5F01B288F80008190C6 /* PCCircleInfoView.m */,
+				3ABFF5E51B288F54008190C6 /* PCLockLabel.h */,
+				3ABFF5E61B288F54008190C6 /* PCLockLabel.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3ABFF5A91B288D75008190C6 /* PCGestureUnlock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3ABFF5CD1B288D75008190C6 /* Build configuration list for PBXNativeTarget "PCGestureUnlock" */;
+			buildPhases = (
+				3ABFF5A61B288D75008190C6 /* Sources */,
+				3ABFF5A71B288D75008190C6 /* Frameworks */,
+				3ABFF5A81B288D75008190C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PCGestureUnlock;
+			productName = PCGestureUnlock;
+			productReference = 3ABFF5AA1B288D75008190C6 /* PCGestureUnlock.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3ABFF5C21B288D75008190C6 /* PCGestureUnlockTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3ABFF5D01B288D75008190C6 /* Build configuration list for PBXNativeTarget "PCGestureUnlockTests" */;
+			buildPhases = (
+				3ABFF5BF1B288D75008190C6 /* Sources */,
+				3ABFF5C01B288D75008190C6 /* Frameworks */,
+				3ABFF5C11B288D75008190C6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3ABFF5C51B288D75008190C6 /* PBXTargetDependency */,
+			);
+			name = PCGestureUnlockTests;
+			productName = PCGestureUnlockTests;
+			productReference = 3ABFF5C31B288D75008190C6 /* PCGestureUnlockTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3ABFF5A21B288D75008190C6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = coderMonkey;
+				TargetAttributes = {
+					3ABFF5A91B288D75008190C6 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					3ABFF5C21B288D75008190C6 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 3ABFF5A91B288D75008190C6;
+					};
+				};
+			};
+			buildConfigurationList = 3ABFF5A51B288D75008190C6 /* Build configuration list for PBXProject "PCGestureUnlock" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3ABFF5A11B288D75008190C6;
+			productRefGroup = 3ABFF5AB1B288D75008190C6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3ABFF5A91B288D75008190C6 /* PCGestureUnlock */,
+				3ABFF5C21B288D75008190C6 /* PCGestureUnlockTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3ABFF5A81B288D75008190C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ABFF5F41B288FBE008190C6 /* Main.storyboard in Resources */,
+				3ABFF5BE1B288D75008190C6 /* LaunchScreen.xib in Resources */,
+				3ABFF5BB1B288D75008190C6 /* Images.xcassets in Resources */,
+				3ABFF5F61B2895AE008190C6 /* 解锁界面初始化布局.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ABFF5C11B288D75008190C6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3ABFF5A61B288D75008190C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ABFF5E81B288F54008190C6 /* GestureViewController.m in Sources */,
+				3ABFF5E71B288F54008190C6 /* GestureVerifyViewController.m in Sources */,
+				3ABFF5EE1B288F54008190C6 /* PCLockLabel.m in Sources */,
+				3ABFF5B31B288D75008190C6 /* AppDelegate.m in Sources */,
+				3ABFF5B01B288D75008190C6 /* main.m in Sources */,
+				3ABFF5EB1B288F54008190C6 /* PCCircleView.m in Sources */,
+				3ABFF5F11B288F80008190C6 /* PCCircleInfoView.m in Sources */,
+				3ABFF5EC1B288F54008190C6 /* PCCircleViewConst.m in Sources */,
+				3ABFF5ED1B288F54008190C6 /* CALayer+Anim.m in Sources */,
+				3ABFF5EA1B288F54008190C6 /* PCCircle.m in Sources */,
+				3ABFF5E91B288F54008190C6 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ABFF5BF1B288D75008190C6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ABFF5CA1B288D75008190C6 /* PCGestureUnlockTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3ABFF5C51B288D75008190C6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3ABFF5A91B288D75008190C6 /* PCGestureUnlock */;
+			targetProxy = 3ABFF5C41B288D75008190C6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3ABFF5BC1B288D75008190C6 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3ABFF5BD1B288D75008190C6 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		3ABFF5F21B288FBE008190C6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3ABFF5F31B288FBE008190C6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3ABFF5CB1B288D75008190C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3ABFF5CC1B288D75008190C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3ABFF5CE1B288D75008190C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PCGestureUnlock/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3ABFF5CF1B288D75008190C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PCGestureUnlock/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3ABFF5D11B288D75008190C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PCGestureUnlockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PCGestureUnlock.app/PCGestureUnlock";
+			};
+			name = Debug;
+		};
+		3ABFF5D21B288D75008190C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PCGestureUnlockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PCGestureUnlock.app/PCGestureUnlock";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3ABFF5A51B288D75008190C6 /* Build configuration list for PBXProject "PCGestureUnlock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3ABFF5CB1B288D75008190C6 /* Debug */,
+				3ABFF5CC1B288D75008190C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3ABFF5CD1B288D75008190C6 /* Build configuration list for PBXNativeTarget "PCGestureUnlock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3ABFF5CE1B288D75008190C6 /* Debug */,
+				3ABFF5CF1B288D75008190C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3ABFF5D01B288D75008190C6 /* Build configuration list for PBXNativeTarget "PCGestureUnlockTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3ABFF5D11B288D75008190C6 /* Debug */,
+				3ABFF5D21B288D75008190C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3ABFF5A21B288D75008190C6 /* Project object */;
+}
