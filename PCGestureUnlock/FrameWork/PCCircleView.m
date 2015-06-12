@@ -164,6 +164,9 @@
                 
                 // 加一次 计算一次方向
                 [self calDirect];
+                
+                // 跳跃连线的处理
+                [self contactThePassedCircleWhenMoving];
             }
         } else {
             
@@ -583,5 +586,69 @@
     }
 }
 
+/**
+ *  提供两个点，返回一个它们的中点
+ *
+ *  @param pointOne 第一个点
+ *  @param pointTwo 第二个点
+ *
+ *  @return 中点
+ */
+- (CGPoint)centerPointWithPointOne:(CGPoint)pointOne pointTwo:(CGPoint)pointTwo
+{
+    CGFloat x1 = pointOne.x > pointTwo.x ? pointOne.x : pointTwo.x;
+    CGFloat x2 = pointOne.x < pointTwo.x ? pointOne.x : pointTwo.x;
+    CGFloat y1 = pointOne.y > pointTwo.y ? pointOne.y : pointTwo.y;
+    CGFloat y2 = pointOne.y < pointTwo.y ? pointOne.y : pointTwo.y;
+    
+    return CGPointMake((x1+x2)/2, (y1 + y2)/2);
+}
+
+/**
+ *  给一个点，判断这个点是否被圆包含，如果包含就返回当前圆，如果不包含返回的是nil
+ *
+ *  @param point 当前点
+ *
+ *  @return 点所在的圆
+ */
+- (PCCircle *)enumCircleSetSubviewsContainTheCenterPoint:(CGPoint)point
+{
+    PCCircle *centerCircle;
+    for (PCCircle *circle in self.subviews) {
+        if (CGRectContainsPoint(circle.frame, point)) {
+            centerCircle = circle;
+        }
+    }
+    
+    if (![self.circleSet containsObject:centerCircle]) {
+        centerCircle.direct = [[self.circleSet objectAtIndex:self.circleSet.count - 2] direct];
+    }
+    
+    return centerCircle;
+}
+
+/**
+ *  moving的时候把跳过的那个圆连上
+ */
+- (void)contactThePassedCircleWhenMoving
+{
+    //取出最后一个对象
+    PCCircle *lastOne = [self.circleSet lastObject];
+    
+    //倒数第二个
+    PCCircle *lastTwo = [self.circleSet objectAtIndex:(self.circleSet.count - 2)];
+    
+    CGPoint center = [self centerPointWithPointOne:lastOne.center pointTwo:lastTwo.center];
+    
+    PCCircle *centerCircle = [self enumCircleSetSubviewsContainTheCenterPoint:center];
+    
+    if (centerCircle != nil) {
+        
+        // 把跳过的圆加到数组中，它的位置是倒数第二个
+        if (![self.circleSet containsObject:centerCircle]) {
+            [self.circleSet insertObject:centerCircle atIndex:self.circleSet.count - 1];
+        }
+    }
+}
 
 @end
