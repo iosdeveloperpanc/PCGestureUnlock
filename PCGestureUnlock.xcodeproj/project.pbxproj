@@ -22,7 +22,10 @@
 		3ABFF5EE1B288F54008190C6 /* PCLockLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFF5E61B288F54008190C6 /* PCLockLabel.m */; };
 		3ABFF5F11B288F80008190C6 /* PCCircleInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ABFF5F01B288F80008190C6 /* PCCircleInfoView.m */; };
 		3ABFF5F41B288FBE008190C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ABFF5F21B288FBE008190C6 /* Main.storyboard */; };
-		3ABFF5F61B2895AE008190C6 /* 解锁界面初始化布局.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3ABFF5F51B2895AE008190C6 /* 解锁界面初始化布局.jpg */; };
+		3AE570F41B2DE18F008B3CBD /* arrowDirctions.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3AE570F01B2DE18F008B3CBD /* arrowDirctions.gif */; };
+		3AE570F51B2DE18F008B3CBD /* ErrorDisplay.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3AE570F11B2DE18F008B3CBD /* ErrorDisplay.gif */; };
+		3AE570F61B2DE18F008B3CBD /* JumpConnect.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3AE570F21B2DE18F008B3CBD /* JumpConnect.gif */; };
+		3AE570F71B2DE18F008B3CBD /* settingGesture.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3AE570F31B2DE18F008B3CBD /* settingGesture.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +68,10 @@
 		3ABFF5EF1B288F80008190C6 /* PCCircleInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCircleInfoView.h; sourceTree = "<group>"; };
 		3ABFF5F01B288F80008190C6 /* PCCircleInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCircleInfoView.m; sourceTree = "<group>"; };
 		3ABFF5F31B288FBE008190C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		3ABFF5F51B2895AE008190C6 /* 解锁界面初始化布局.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "解锁界面初始化布局.jpg"; sourceTree = "<group>"; };
+		3AE570F01B2DE18F008B3CBD /* arrowDirctions.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = arrowDirctions.gif; sourceTree = "<group>"; };
+		3AE570F11B2DE18F008B3CBD /* ErrorDisplay.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ErrorDisplay.gif; sourceTree = "<group>"; };
+		3AE570F21B2DE18F008B3CBD /* JumpConnect.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = JumpConnect.gif; sourceTree = "<group>"; };
+		3AE570F31B2DE18F008B3CBD /* settingGesture.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = settingGesture.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +130,10 @@
 		3ABFF5AD1B288D75008190C6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				3ABFF5F51B2895AE008190C6 /* 解锁界面初始化布局.jpg */,
+				3AE570F01B2DE18F008B3CBD /* arrowDirctions.gif */,
+				3AE570F11B2DE18F008B3CBD /* ErrorDisplay.gif */,
+				3AE570F21B2DE18F008B3CBD /* JumpConnect.gif */,
+				3AE570F31B2DE18F008B3CBD /* settingGesture.gif */,
 				3ABFF5AE1B288D75008190C6 /* Info.plist */,
 				3ABFF5AF1B288D75008190C6 /* main.m */,
 			);
@@ -274,10 +283,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AE570F41B2DE18F008B3CBD /* arrowDirctions.gif in Resources */,
 				3ABFF5F41B288FBE008190C6 /* Main.storyboard in Resources */,
 				3ABFF5BE1B288D75008190C6 /* LaunchScreen.xib in Resources */,
+				3AE570F61B2DE18F008B3CBD /* JumpConnect.gif in Resources */,
 				3ABFF5BB1B288D75008190C6 /* Images.xcassets in Resources */,
-				3ABFF5F61B2895AE008190C6 /* 解锁界面初始化布局.jpg in Resources */,
+				3AE570F71B2DE18F008B3CBD /* settingGesture.gif in Resources */,
+				3AE570F51B2DE18F008B3CBD /* ErrorDisplay.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

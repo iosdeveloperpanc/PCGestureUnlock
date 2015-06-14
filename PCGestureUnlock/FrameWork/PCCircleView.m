@@ -18,6 +18,7 @@
 
 @implementation PCCircleView
 
+#pragma mark - 重写arrow的setter
 - (void)setArrow:(BOOL)arrow
 {
     _arrow = arrow;
@@ -36,13 +37,13 @@
     return _circleSet;
 }
 
+#pragma mark - 初始化方法：初始化type、clip、arrow
 /**
  *  初始化方法
  *
- *  @param type type
- *  @param clip 是否剪切圆
- *
- *  @return self
+ *  @param type  类型
+ *  @param clip  是否剪裁
+ *  @param arrow 三角形箭头
  */
 - (instancetype)initWithType:(CircleViewType)type clip:(BOOL)clip arrow:(BOOL)arrow
 {
@@ -75,6 +76,7 @@
     return self;
 }
 
+#pragma mark - 解锁视图准备
 /*
  *  解锁视图准备
  */
@@ -429,7 +431,7 @@
     [self connectCirclesInRect:rect lineColor:color];
 }
 
-#pragma mark - drawRect绘制图案(以设定颜色绘制)
+#pragma mark - 连线绘制图案(以设定颜色绘制)
 /**
  *  将选中的圆形以color颜色链接起来
  *
@@ -586,14 +588,7 @@
     }
 }
 
-/**
- *  提供两个点，返回一个它们的中点
- *
- *  @param pointOne 第一个点
- *  @param pointTwo 第二个点
- *
- *  @return 中点
- */
+#pragma mark - 提供两个点，返回一个它们的中点
 - (CGPoint)centerPointWithPointOne:(CGPoint)pointOne pointTwo:(CGPoint)pointTwo
 {
     CGFloat x1 = pointOne.x > pointTwo.x ? pointOne.x : pointTwo.x;
@@ -604,6 +599,7 @@
     return CGPointMake((x1+x2)/2, (y1 + y2)/2);
 }
 
+#pragma mark - 给一个点，判断这个点是否被圆包含，如果包含就返回当前圆，如果不包含返回的是nil
 /**
  *  给一个点，判断这个点是否被圆包含，如果包含就返回当前圆，如果不包含返回的是nil
  *
@@ -621,21 +617,21 @@
     }
     
     if (![self.circleSet containsObject:centerCircle]) {
+        // 这个circle的方向和倒数第二个circle的方向一致
         centerCircle.direct = [[self.circleSet objectAtIndex:self.circleSet.count - 2] direct];
     }
     
-    return centerCircle;
+    return centerCircle; // 注意：可能返回的是nil，就是当前点不在圆内
 }
 
+#pragma mark - moving的时候把跳过的那个圆连上
 /**
  *  moving的时候把跳过的那个圆连上
  */
 - (void)contactThePassedCircleWhenMoving
 {
-    //取出最后一个对象
+    //取出倒数第一、二个对象
     PCCircle *lastOne = [self.circleSet lastObject];
-    
-    //倒数第二个
     PCCircle *lastTwo = [self.circleSet objectAtIndex:(self.circleSet.count - 2)];
     
     CGPoint center = [self centerPointWithPointOne:lastOne.center pointTwo:lastTwo.center];
