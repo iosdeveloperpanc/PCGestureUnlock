@@ -630,6 +630,8 @@
  */
 - (void)contactThePassedCircleWhenMoving
 {
+    if(self.circleSet == nil || [self.circleSet count] <= 1) return;
+    
     //取出倒数第一、二个对象
     PCCircle *lastOne = [self.circleSet lastObject];
     PCCircle *lastTwo = [self.circleSet objectAtIndex:(self.circleSet.count - 2)];
