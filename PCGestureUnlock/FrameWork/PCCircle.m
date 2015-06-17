@@ -132,7 +132,7 @@
  *  上下文旋转
  */
 -(void)transFormCtx:(CGContextRef)ctx rect:(CGRect)rect{
-    if(self.direct == 0) return;
+//    if(self.angle == 0) return;
     CGFloat translateXY = rect.size.width * .5f;
     //平移
     CGContextTranslateCTM(ctx, translateXY, translateXY);
@@ -229,13 +229,11 @@
 }
 
 /**
- *  重写direct Setter
+ *  重写angle的setter
  */
-- (void)setDirect:(CircleDirect)direct
+- (void)setAngle:(CGFloat)angle
 {
-    _direct = direct;
-    
-    self.angle = (M_PI_4/2) * (direct -1);
+    _angle = angle;
     
     [self setNeedsDisplay];
 }

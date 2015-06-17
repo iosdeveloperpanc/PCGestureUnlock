@@ -164,11 +164,9 @@
             } else {
                 [self.circleSet addObject:circle];
                 
-                // 加一次 计算一次方向
-                [self calDirect];
-                
-                // 跳跃连线的处理
-                [self contactThePassedCircleWhenMoving];
+                // move过程中的连线（包含跳跃连线的处理）
+                [self calAngleAndconnectTheJumpedCircle];
+
             }
         } else {
             
@@ -277,7 +275,7 @@
 - (void)resetAllCirclesDirect
 {
     [self.subviews enumerateObjectsUsingBlock:^(PCCircle *obj, NSUInteger idx, BOOL *stop) {
-        [obj setDirect:CircleDirectTop];
+        [obj setAngle:0];
     }];
 }
 
@@ -515,13 +513,9 @@
 }
 
 #pragma mark - 每添加一个圆，就计算一次方向
--(void)calDirect{
+-(void)calAngleAndconnectTheJumpedCircle{
     
     if(self.circleSet == nil || [self.circleSet count] <= 1) return;
-    
-    CGFloat circleWH = 60.0f;
-    
-    CGFloat padding = ([UIScreen mainScreen].bounds.size.width - 4 * circleWH)/3;
     
     //取出最后一个对象
     PCCircle *lastOne = [self.circleSet lastObject];
@@ -535,56 +529,21 @@
     CGFloat last_2_x = lastTwo.center.x;
     CGFloat last_2_y = lastTwo.center.y;
     
-    CGFloat margin = padding + circleWH;
+    // 1.计算角度（反正切函数）
+    CGFloat angle = atan2(last_1_y - last_2_y, last_1_x - last_2_x) + M_PI_2;
+    [lastTwo setAngle:angle];
     
-    //倒数第一个itemView相对倒数第二个itemView来说
-    if( (last_2_x == last_1_x && last_2_y == last_1_y + margin) || (last_2_x == last_1_x && last_2_y == last_1_y + 2*margin)) {
-        lastTwo.direct = CircleDirectTop; //正上 -
-    }
-    if((last_2_y == last_1_y && last_2_x == last_1_x + margin) || (last_2_y == last_1_y && last_2_x == last_1_x + 2*margin)) {
-        lastTwo.direct = CircleDirectLeft; //正左 -
-    }
-    if( (last_2_x == last_1_x && last_1_y == last_2_y + margin) || (last_2_x == last_1_x && last_1_y == last_2_y + 2*margin) ) {
-        lastTwo.direct = CircleDirectBottom; //正下 -
-    }
-    if((last_2_y == last_1_y && last_1_x == last_2_x + margin) || (last_2_y == last_1_y && last_1_x == last_2_x + 2*margin)) {
-        lastTwo.direct = CircleDirectRight; //正右 -
-    }
-    if(last_2_x == last_1_x + 2*margin && last_2_y == last_1_y + margin) {
-        lastTwo.direct = CircleDirectLeftTopOne; //左上1 -
-    }
-    if((last_2_x == last_1_x + 2*margin && last_2_y == last_1_y + 2*margin) || (last_2_x == last_1_x + margin && last_2_y == last_1_y + margin)) {
-        lastTwo.direct = CircleDirectLeftTopTwo; //左上2 -
-    }
-    if(last_2_x == last_1_x + margin && last_2_y == last_1_y + 2 * margin) {
-        lastTwo.direct = CircleDirectLeftTopThree; //左上3 -
-    }
-    if(last_1_x == last_2_x + margin && last_2_y == last_1_y + 2 * margin) {
-        lastTwo.direct = CircleDirectRightTopOne; //右上1 -
-    }
-    if((last_1_x == last_2_x + 2*margin && last_2_y == last_1_y + 2*margin) || (last_1_x == last_2_x + margin && last_2_y == last_1_y + margin)) {
-        lastTwo.direct = CircleDirectRightTopTwo; //右上2 -
-    }
-    if(last_1_x == last_2_x + 2*margin && last_2_y == last_1_y + margin) {
-        lastTwo.direct = CircleDirectRightTopThree; //右上3 -
-    }
-    if(last_2_x == last_1_x + margin && last_1_y == last_2_y + 2*margin) {
-        lastTwo.direct = CircleDirectLeftBottomOne; //左下1 -
-    }
-    if((last_2_x == last_1_x + 2*margin && last_1_y == last_2_y + 2*margin) || (last_2_x == last_1_x + margin && last_1_y == last_2_y + margin)) {
-        lastTwo.direct = CircleDirectLeftBottomTwo; //左下2 -
-    }
-    if(last_2_x == last_1_x + 2*margin && last_1_y == last_2_y + margin) {
-        lastTwo.direct = CircleDirectLeftBottomThree; //左下3 -
-    }
-    if(last_1_x == last_2_x + 2*margin && last_1_y == last_2_y + margin) {
-        lastTwo.direct = CircleDirectRightBottomOne; //右下1 -
-    }
-    if((last_1_x == last_2_x + 2*margin && last_1_y == last_2_y + 2*margin) || (last_1_x == last_2_x + margin && last_1_y == last_2_y + margin) ) {
-        lastTwo.direct = CircleDirectRightBottomTwo; //右下2 -
-    }
-    if(last_1_x == last_2_x + margin && last_1_y == last_2_y + 2*margin) {
-        lastTwo.direct = CircleDirectRightBottomThree; //右下3 -
+    // 2.处理跳跃连线
+    CGPoint center = [self centerPointWithPointOne:lastOne.center pointTwo:lastTwo.center];
+    
+    PCCircle *centerCircle = [self enumCircleSetToFindWhichSubviewContainTheCenterPoint:center];
+    
+    if (centerCircle != nil) {
+        
+        // 把跳过的圆加到数组中，它的位置是倒数第二个
+        if (![self.circleSet containsObject:centerCircle]) {
+            [self.circleSet insertObject:centerCircle atIndex:self.circleSet.count - 1];
+        }
     }
 }
 
@@ -607,7 +566,7 @@
  *
  *  @return 点所在的圆
  */
-- (PCCircle *)enumCircleSetSubviewsContainTheCenterPoint:(CGPoint)point
+- (PCCircle *)enumCircleSetToFindWhichSubviewContainTheCenterPoint:(CGPoint)point
 {
     PCCircle *centerCircle;
     for (PCCircle *circle in self.subviews) {
@@ -617,36 +576,11 @@
     }
     
     if (![self.circleSet containsObject:centerCircle]) {
-        // 这个circle的方向和倒数第二个circle的方向一致
-        centerCircle.direct = [[self.circleSet objectAtIndex:self.circleSet.count - 2] direct];
+        // 这个circle的角度和倒数第二个circle的角度一致
+        centerCircle.angle = [[self.circleSet objectAtIndex:self.circleSet.count - 2] angle];
     }
     
     return centerCircle; // 注意：可能返回的是nil，就是当前点不在圆内
-}
-
-#pragma mark - moving的时候把跳过的那个圆连上
-/**
- *  moving的时候把跳过的那个圆连上
- */
-- (void)contactThePassedCircleWhenMoving
-{
-    if(self.circleSet == nil || [self.circleSet count] <= 1) return;
-    
-    //取出倒数第一、二个对象
-    PCCircle *lastOne = [self.circleSet lastObject];
-    PCCircle *lastTwo = [self.circleSet objectAtIndex:(self.circleSet.count - 2)];
-    
-    CGPoint center = [self centerPointWithPointOne:lastOne.center pointTwo:lastTwo.center];
-    
-    PCCircle *centerCircle = [self enumCircleSetSubviewsContainTheCenterPoint:center];
-    
-    if (centerCircle != nil) {
-        
-        // 把跳过的圆加到数组中，它的位置是倒数第二个
-        if (![self.circleSet containsObject:centerCircle]) {
-            [self.circleSet insertObject:centerCircle atIndex:self.circleSet.count - 1];
-        }
-    }
 }
 
 @end
