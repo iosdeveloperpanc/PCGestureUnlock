@@ -349,15 +349,15 @@
     
     BOOL equal = [gesture isEqual:password];
     
-    if ([self.delegate respondsToSelector:@selector(circleView:type:didCompleteLoginGesture:result:)]) {
-        [self.delegate circleView:self type:self.type didCompleteLoginGesture:gesture result:equal];
-    }
-    
     if (equal) {
         
     } else {
 
         [self changeCircleInCircleSetWithState:CircleStateError];
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(circleView:type:didCompleteLoginGesture:result:)]) {
+        [self.delegate circleView:self type:self.type didCompleteLoginGesture:gesture result:equal];
     }
 }
 
