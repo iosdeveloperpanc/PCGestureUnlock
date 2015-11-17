@@ -236,7 +236,6 @@
         NSLog(@"两次手势匹配！可以进行本地化保存了");
         
         [self.msgLabel showWarnMsg:gestureTextSetSuccess];
-        [PCCircleViewConst saveGesture:gesture Key:gestureFinalSaveKey];
         [self.navigationController popToRootViewControllerAnimated:YES];
         
     } else {

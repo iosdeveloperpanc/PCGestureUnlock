@@ -319,13 +319,6 @@
             
             BOOL equal = [gesture isEqual:[PCCircleViewConst getGestureWithKey:gestureOneSaveKey]]; // 匹配两次手势
             
-            // 通知代理
-            if ([self.delegate respondsToSelector:@selector(circleView:type:didCompleteSetSecondGesture:result:)]) {
-                
-                [self.delegate circleView:self type:self.type didCompleteSetSecondGesture:gesture result:equal];
-                
-            }
-            
             if (equal){
                 // 一致，存储密码
                 [PCCircleViewConst saveGesture:gesture Key:gestureFinalSaveKey];
@@ -333,6 +326,13 @@
             } else {
                 // 不一致，重绘回显
                 [self changeCircleInCircleSetWithState:CircleStateError];
+            }
+            
+            // 通知代理
+            if ([self.delegate respondsToSelector:@selector(circleView:type:didCompleteSetSecondGesture:result:)]) {
+                
+                [self.delegate circleView:self type:self.type didCompleteSetSecondGesture:gesture result:equal];
+                
             }
         }
         
