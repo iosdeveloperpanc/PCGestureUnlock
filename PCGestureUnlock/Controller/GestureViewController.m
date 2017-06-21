@@ -6,12 +6,7 @@
 #import "PCCircleInfoView.h"
 #import "PCCircle.h"
 
-@interface GestureViewController ()<CircleViewDelegate>
-
-/**
- *  重设按钮
- */
-@property (nonatomic, strong) UIButton *resetBtn;
+@interface GestureViewController ()<UINavigationControllerDelegate, CircleViewDelegate>
 
 /**
  *  提示Label
@@ -36,21 +31,8 @@
 {
     [super viewWillAppear:animated];
     
-    if (self.type == GestureViewControllerTypeLogin) {
-        [self.navigationController setNavigationBarHidden:YES animated:animated];
-    }
-    
     // 进来先清空存的第一个密码
     [PCCircleViewConst saveGesture:nil Key:gestureOneSaveKey];
-}
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        
-    }
-    return self;
 }
 
 - (void)viewDidLoad {
@@ -58,28 +40,14 @@
     // Do any additional setup after loading the view.
     
     [self.view setBackgroundColor:CircleViewBackgroundColor];
-    
+
+    self.navigationController.delegate = self;
+
     // 1.界面相同部分生成器
     [self setupSameUI];
     
     // 2.界面不同部分生成器
     [self setupDifferentUI];
-}
-
-#pragma mark - 创建UIBarButtonItem
-- (UIBarButtonItem *)itemWithTitle:(NSString *)title target:(id)target action:(SEL)action tag:(NSInteger)tag
-{
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setTitle:title forState:UIControlStateNormal];
-    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
-    button.frame = (CGRect){CGPointZero, {100, 20}};
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    button.titleLabel.font = [UIFont systemFontOfSize:17];
-    button.tag = tag;
-    [button setContentHorizontalAlignment:UIControlContentHorizontalAlignmentRight];
-    [button setHidden:YES];
-    self.resetBtn = button;
-    return [[UIBarButtonItem alloc] initWithCustomView:button];
 }
 
 #pragma mark - 界面不同部分生成器
@@ -100,9 +68,6 @@
 #pragma mark - 界面相同部分生成器
 - (void)setupSameUI
 {
-    // 创建导航栏右边按钮
-    self.navigationItem.rightBarButtonItem = [self itemWithTitle:@"重设" target:self action:@selector(didClickBtn:) tag:buttonTagReset];
-    
     // 解锁界面
     PCCircleView *lockView = [[PCCircleView alloc] init];
     lockView.delegate = self;
@@ -145,11 +110,11 @@
     [self.view addSubview:imageView];
     
     // 管理手势密码
-    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *leftBtn = [UIButton new];
     [self creatButton:leftBtn frame:CGRectMake(CircleViewEdgeMargin + 20, kScreenH - 60, kScreenW/2, 20) title:@"管理手势密码" alignment:UIControlContentHorizontalAlignmentLeft tag:buttonTagManager];
     
     // 登录其他账户
-    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *rightBtn = [UIButton new];
     [self creatButton:rightBtn frame:CGRectMake(kScreenW/2 - CircleViewEdgeMargin - 20, kScreenH - 60, kScreenW/2, 20) title:@"登陆其他账户" alignment:UIControlContentHorizontalAlignmentRight tag:buttonTagForget];
 }
 
@@ -166,27 +131,26 @@
     [self.view addSubview:btn];
 }
 
+- (void)didClickRightItem {
+    NSLog(@"点击了重设按钮");
+    // 1.隐藏按钮
+    self.navigationItem.rightBarButtonItem.title = nil;
+
+    // 2.infoView取消选中
+    [self infoViewDeselectedSubviews];
+
+    // 3.msgLabel提示文字复位
+    [self.msgLabel showNormalMsg:gestureTextBeforeSet];
+
+    // 4.清除之前存储的密码
+    [PCCircleViewConst saveGesture:nil Key:gestureOneSaveKey];
+}
+
 #pragma mark - button点击事件
 - (void)didClickBtn:(UIButton *)sender
 {
     NSLog(@"%ld", (long)sender.tag);
     switch (sender.tag) {
-        case buttonTagReset:
-        {
-            NSLog(@"点击了重设按钮");
-            // 1.隐藏按钮
-            [self.resetBtn setHidden:YES];
-            
-            // 2.infoView取消选中
-            [self infoViewDeselectedSubviews];
-            
-            // 3.msgLabel提示文字复位
-            [self.msgLabel showNormalMsg:gestureTextBeforeSet];
-            
-            // 4.清除之前存储的密码
-            [PCCircleViewConst saveGesture:nil Key:gestureOneSaveKey];
-        }
-            break;
         case buttonTagManager:
         {
             NSLog(@"点击了管理手势密码按钮");
@@ -210,7 +174,7 @@
 
     // 看是否存在第一个密码
     if ([gestureOne length]) {
-        [self.resetBtn setHidden:NO];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"重设" style:UIBarButtonItemStylePlain target:self action:@selector(didClickRightItem)];
         [self.msgLabel showWarnMsgAndShake:gestureTextDrawAgainError];
     } else {
         NSLog(@"密码长度不合法%@", gesture);
@@ -243,7 +207,7 @@
         NSLog(@"两次手势不匹配！");
         
         [self.msgLabel showWarnMsgAndShake:gestureTextDrawAgainError];
-        [self.resetBtn setHidden:NO];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"重设" style:UIBarButtonItemStylePlain target:self action:@selector(didClickRightItem)];
     }
 }
 
@@ -274,8 +238,7 @@
 
 #pragma mark - infoView展示方法
 #pragma mark - 让infoView对应按钮选中
-- (void)infoViewSelectedSubviewsSameAsCircleView:(PCCircleView *)circleView
-{
+- (void)infoViewSelectedSubviewsSameAsCircleView:(PCCircleView *)circleView {
     for (PCCircle *circle in circleView.subviews) {
         
         if (circle.state == CircleStateSelected || circle.state == CircleStateLastOneSelected) {
@@ -290,11 +253,22 @@
 }
 
 #pragma mark - 让infoView对应按钮取消选中
-- (void)infoViewDeselectedSubviews
-{
+
+- (void)infoViewDeselectedSubviews {
     [self.infoView.subviews enumerateObjectsUsingBlock:^(PCCircle *obj, NSUInteger idx, BOOL *stop) {
         [obj setState:CircleStateNormal];
     }];
+}
+
+#pragma mark - UINavigationControllerDelegate
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+
+    BOOL isLoginType = [viewController isKindOfClass:[self class]];
+
+    if (self.type == GestureViewControllerTypeLogin) {
+        [self.navigationController setNavigationBarHidden:isLoginType animated:YES];
+    }
 }
 
 @end

@@ -141,9 +141,6 @@
     CGContextTranslateCTM(ctx, -translateXY, -translateXY);
 }
 
-/**
- *  圆环绘制颜色的getter
- */
 - (UIColor *)outCircleColor
 {
     UIColor *color;
@@ -170,9 +167,6 @@
     return color;
 }
 
-/**
- *  实心圆绘制颜色的getter
- */
 - (UIColor *)inCircleColor
 {
     UIColor *color;
@@ -199,9 +193,6 @@
     return color;
 }
 
-/**
- *  三角形颜色的getter
- */
 - (UIColor *)trangleColor
 {
     UIColor *color;
@@ -228,9 +219,6 @@
     return color;
 }
 
-/**
- *  重写angle的setter
- */
 - (void)setAngle:(CGFloat)angle
 {
     _angle = angle;
@@ -238,9 +226,6 @@
     [self setNeedsDisplay];
 }
 
-/**
- *  重写state Setter
- */
 - (void)setState:(CircleState)state
 {
     _state = state;
