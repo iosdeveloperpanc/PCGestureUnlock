@@ -550,11 +550,11 @@
 #pragma mark - 提供两个点，返回一个它们的中点
 - (CGPoint)centerPointWithPointOne:(CGPoint)pointOne pointTwo:(CGPoint)pointTwo
 {
-    CGFloat x1 = pointOne.x > pointTwo.x ? pointOne.x : pointTwo.x;
-    CGFloat x2 = pointOne.x < pointTwo.x ? pointOne.x : pointTwo.x;
-    CGFloat y1 = pointOne.y > pointTwo.y ? pointOne.y : pointTwo.y;
-    CGFloat y2 = pointOne.y < pointTwo.y ? pointOne.y : pointTwo.y;
-    
+    CGFloat x1 = fmax(pointOne.x, pointTwo.x);
+    CGFloat x2 = fmin(pointOne.x, pointTwo.x);
+    CGFloat y1 = fmax(pointOne.y, pointTwo.y);
+    CGFloat y2 = fmin(pointOne.y, pointTwo.y);
+
     return CGPointMake((x1+x2)/2, (y1 + y2)/2);
 }
 

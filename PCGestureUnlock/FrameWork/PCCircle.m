@@ -49,7 +49,7 @@
     
     if (self.type == CircleTypeGesture) {
         radio = CircleRadio;
-    } else if (self.type == CircleTypeInfo) {
+    } else {
         radio = 1;
     }
     

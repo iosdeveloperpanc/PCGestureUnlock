@@ -13,7 +13,7 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        // 解锁视图准备
+        // 解锁视图
         [self lockViewPrepare];
     }
     return self;
@@ -22,14 +22,14 @@
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     if (self = [super initWithCoder:aDecoder]) {
-        // 解锁视图准备
+        // 解锁视图
         [self lockViewPrepare];
     }
     return self;
 }
 
 /*
- *  解锁视图准备
+ *  解锁视图
  */
 -(void)lockViewPrepare{
     
